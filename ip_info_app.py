@@ -6,7 +6,7 @@ Team: THE DREAM TEAM
 This application retrieves and displays public IPv4/IPv6 address information
 including geolocation, ISP details, and network information.
 
-Version: 2.0.0
+Version: 1.0.0
 Author: Team THE DREAM TEAM
 Date: October 2024
 """
