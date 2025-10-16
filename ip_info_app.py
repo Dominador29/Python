@@ -46,7 +46,7 @@ def get_ipv4_info():
     Returns: IPv4 address string or None if error
     """
     try:
-        print(f"{Colors.YELLOW}🔍 Fetching IPv4 address...{Colors.END}")
+        print(f"{Colors.YELLOW} Fetching IPv4 address...{Colors.END}")
         response = requests.get('https://api.ipify.org?format=json', timeout=10)
         
         if response.status_code != 200:
@@ -54,7 +54,7 @@ def get_ipv4_info():
             return None
             
         ipv4 = response.json()['ip']
-        print(f"{Colors.GREEN}✓ IPv4 retrieved: {ipv4}{Colors.END}")
+        print(f"{Colors.GREEN} IPv4 retrieved: {ipv4}{Colors.END}")
         return ipv4
         
     except requests.exceptions.Timeout:
@@ -73,23 +73,23 @@ def get_ipv6_info():
     Returns: IPv6 address string or None if not available
     """
     try:
-        print(f"{Colors.YELLOW}🔍 Checking for IPv6 address...{Colors.END}")
+        print(f"{Colors.YELLOW} Checking for IPv6 address...{Colors.END}")
         response = requests.get('https://api64.ipify.org?format=json', timeout=10)
         
         if response.status_code == 200:
             ipv6 = response.json()['ip']
             if ':' in ipv6:
-                print(f"{Colors.GREEN}✓ IPv6 retrieved: {ipv6}{Colors.END}")
+                print(f"{Colors.GREEN} IPv6 retrieved: {ipv6}{Colors.END}")
                 return ipv6
             else:
-                print(f"{Colors.YELLOW}⚠ IPv6 not available (IPv4-only connection){Colors.END}")
+                print(f"{Colors.YELLOW} IPv6 not available (IPv4-only connection){Colors.END}")
                 return None
         return None
         
     except Exception as e:
-        print(f"{Colors.YELLOW}⚠ IPv6 not available{Colors.END}")
+        print(f"{Colors.YELLOW} IPv6 not available{Colors.END}")
         return None
-
+#comment
 def get_detailed_info(ip_address):
     """
     Fetch detailed IP information using ip-api.com
@@ -97,7 +97,7 @@ def get_detailed_info(ip_address):
     Returns: Dictionary containing IP information or None if error
     """
     try:
-        print(f"{Colors.YELLOW}🔍 Fetching location details...{Colors.END}")
+        print(f"{Colors.YELLOW} Fetching location details...{Colors.END}")
 
         fields = "status,message,continent,continentCode,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,asname,query"
         url = f"http://ip-api.com/json/{ip_address}?fields={fields}"
@@ -107,7 +107,7 @@ def get_detailed_info(ip_address):
         if response.status_code == 200:
             data = response.json()
             if data.get('status') == 'success':
-                print(f"{Colors.GREEN}✓ Location details retrieved{Colors.END}")
+                print(f"{Colors.GREEN} Location details retrieved{Colors.END}")
                 return data
             else:
                 error_msg = data.get('message', 'Unknown error')
@@ -181,12 +181,12 @@ def display_ip_info(data):
         print(f"{Colors.RED}No data to display.{Colors.END}")
         return
     
-    print(f"\n{Colors.GREEN}{Colors.BOLD}✅ IP INFORMATION RETRIEVED SUCCESSFULLY{Colors.END}")
+    print(f"\n{Colors.GREEN}{Colors.BOLD} IP INFORMATION RETRIEVED SUCCESSFULLY{Colors.END}")
     print(f"{Colors.CYAN}Timestamp: {data.get('timestamp', 'N/A')}{Colors.END}\n")
     
     # IP Addresses
     print(f"{Colors.BLUE}{Colors.BOLD}{'─'*60}")
-    print("🌐 IP ADDRESSES")
+    print(" IP ADDRESSES")
     print(f"{'─'*60}{Colors.END}")
     print(f"  IPv4 Address    : {Colors.CYAN}{data.get('ipv4', 'N/A')}{Colors.END}")
     
@@ -198,7 +198,7 @@ def display_ip_info(data):
     
     # Network Information
     print(f"\n{Colors.BLUE}{Colors.BOLD}{'─'*60}")
-    print("🔌 NETWORK INFORMATION")
+    print(" NETWORK INFORMATION")
     print(f"{'─'*60}{Colors.END}")
     print(f"  Network         : {data.get('network', 'N/A')}")
     print(f"  ASN Name        : {data.get('asn', 'N/A')}")
@@ -207,7 +207,7 @@ def display_ip_info(data):
     
     # Location Information
     print(f"\n{Colors.BLUE}{Colors.BOLD}{'─'*60}")
-    print("📍 LOCATION INFORMATION")
+    print(" LOCATION INFORMATION")
     print(f"{'─'*60}{Colors.END}")
     print(f"  City            : {data.get('city', 'N/A')}")
     print(f"  Region          : {data.get('region', 'N/A')} ({data.get('region_code', 'N/A')})")
@@ -263,7 +263,7 @@ def save_to_file(data, file_format='json'):
                 f.write(f"Coordinates: {data.get('latitude', 'N/A')}, {data.get('longitude', 'N/A')}\n")
                 f.write(f"Timezone: {data.get('timezone', 'N/A')}\n")
         
-        print(f"{Colors.GREEN}✅ Data saved to: {filename}{Colors.END}")
+        print(f"{Colors.GREEN} Data saved to: {filename}{Colors.END}")
         return True
         
     except Exception as e:
@@ -354,7 +354,7 @@ def main():
             print(f"\n{Colors.CYAN}Refreshing IP information...{Colors.END}\n")
             ip_data = get_all_ip_info()
             if ip_data:
-                print(f"{Colors.GREEN}✅ Data refreshed successfully!{Colors.END}")
+                print(f"{Colors.GREEN} Data refreshed successfully!{Colors.END}")
                 display_ip_info(ip_data)
             else:
                 print(f"{Colors.RED}Failed to refresh data.{Colors.END}")
@@ -391,3 +391,5 @@ if __name__ == "__main__":
         print(f"\n\n{Colors.YELLOW}Program interrupted by user.{Colors.END}")
         print(f"{Colors.GREEN}Thank you for using IP Address Information Tool!{Colors.END}\n")
         sys.exit(0)
+
+        # END OF CODE
