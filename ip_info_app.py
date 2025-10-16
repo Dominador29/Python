@@ -65,8 +65,10 @@ def get_ipv4_info():
         return None
     except Exception as e:
         print(f"{Colors.RED}Error fetching IPv4: {str(e)}{Colors.END}")
-        return None
-
+        return None 
+"""
+dsdad
+"""
 def get_ipv6_info():
     """
     Fetch IPv6 address using ipify.org
