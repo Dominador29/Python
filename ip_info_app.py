@@ -89,7 +89,7 @@ def get_ipv6_info():
     except Exception as e:
         print(f"{Colors.YELLOW} IPv6 not available{Colors.END}")
         return None
-
+#comment
 def get_detailed_info(ip_address):
     """
     Fetch detailed IP information using ip-api.com
