@@ -36,7 +36,7 @@ def print_banner():
     """Display application banner with version info"""
     print(f"\n{Colors.CYAN}{Colors.BOLD}{'='*60}")
     print("        IP ADDRESS INFORMATION TOOL")
-    print("              Team Quizzle")
+    print("              THE DREAM TEAM")
     print(f"              Version {__version__}")
     print(f"{'='*60}{Colors.END}\n")
 
@@ -366,7 +366,7 @@ def main():
         elif choice == '6':
             # Exit
             print(f"\n{Colors.GREEN}Thank you for using IP Address Information Tool!{Colors.END}")
-            print(f"{Colors.CYAN}Developed by Team Quizzle - {__date__}{Colors.END}\n")
+            print(f"{Colors.CYAN}Developed by THE DREAM TEAM - {__date__}{Colors.END}\n")
             sys.exit(0)
         
         else:
