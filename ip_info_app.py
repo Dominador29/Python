@@ -7,7 +7,7 @@ This application retrieves and displays public IPv4/IPv6 address information
 including geolocation, ISP details, and network information.
 
 Version: 1.0.0
-Author: Team THE DREAM TEAM
+Author: THE DREAM TEAM
 Date: October 2024
 """
 
@@ -18,7 +18,7 @@ import time
 import sys
 
 __version__ = "2.0.0"
-__author__ = "Team THE DREAM TEAM"      
+__author__ = "THE DREAM TEAM"      
 __date__ = "October 2024"
 
 class Colors:
@@ -371,11 +371,10 @@ def main():
         
         else:
             print(f"{Colors.RED}Invalid choice. Please enter a number between 1-6.{Colors.END}")
-# comment pang push
+
 if __name__ == "__main__":
     """Entry point of the application"""
     try:
-        # Check if requests library is installed
         import requests
         main()
     except ImportError:
